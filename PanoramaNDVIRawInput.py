@@ -39,8 +39,9 @@ for infile in os.listdir("./"):
 #the number of photons are in linear relation to the pixel values. 
 #You can do that with:
 
-       rgb = raw.postprocess()
-      
+       rgb = raw.postprocess() # demosaicing
+       #rgb = np.rot90(rgb, k=2) which could change RGGB pattern to BGGR, vice versa）
+        
        rgb = cv2.resize(rgb,dim,interpolation = cv2.INTER_AREA)
        rgb = cv2.bitwise_not(~rgb)
 
